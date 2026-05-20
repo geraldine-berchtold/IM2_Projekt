@@ -1,24 +1,52 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cocktail API</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <title>Truth or Dare</title>
+    <link rel="stylesheet" href="test.css" />
   </head>
   <body>
-    <header>
-      <h1>Vorlage für interaktive Medien II</h1>
-    </header>
-    <main>
-      <h2>Main Content Hallo Geraldine</h2>
-      <p>This is the main content of the page.</p>
-      <p>wenn du das gsehsch bin ich erfolgrich gsi bim comitte - lg benita</p>
-      <p>es het funktioniert - lg geraldine</p>
-    </main>
-    <footer>
-      <p>This is the footer of the page.</p>
-    </footer>
-    <script src="js/script.js" type="module"></script>
+    <div class="site-frame">
+      <!-- HERO -->
+      <section id="hero">
+        <img
+          class="logo-corner"
+          src="IM2_Projekt/images/logo-icon_desktop.png"
+          alt="Truth or Dare logo"
+        />
+        <h1 class="neon-title">TRUTH</h1>
+        <h1 class="neon-title">OR</h1>
+        <h1 class="neon-title">DARE</h1>
+        <p class="bodytext">
+          A game ranging from harmless fun to bold, daring moments
+        </p>
+        <a href="#rating-block" class="play-btn" id="play-btn">PLAY NOW</a>
+        <img
+          class="arrow-img"
+          src="IM2_Projekt/images/arrow_desktop.png"
+          alt="arrow to scroll down"
+        />
+      </section>
+
+      <!-- pick-your-level -->
+      <section class="pick-your-level">
+        <h2 class="section-title">PICK YOUR LEVEL</h2>
+        <div class="rating-row">
+          <div class="rating-item">
+            <button class="rating-btn" id="pg">PG</button>
+            <p class="bodytext">harmless but a bit awkward</p>
+          </div>
+          <div class="rating-item">
+            <button class="rating-btn" id="pg13">PG-13</button>
+            <p class="bodytext">flirty and slightly daring</p>
+          </div>
+          <div class="rating-item">
+            <button class="rating-btn" id="r">18+</button>
+            <p class="bodytext">bold, unfiltered, and risky</p>
+          </div>
+        </div>
+      </section>
   </body>
 </html>
+
