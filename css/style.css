@@ -166,19 +166,18 @@ body {
 
 /* ── pick-your-level ── */
 .rating-row {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 100%;
-  flex-wrap: wrap;
-  gap: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: fit-content;
+  gap: 10rem;
+  justify-items: center;
 }
+
 .rating-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.7rem;
-  width: 12rem;
 }
 
 /* DEFAULT */
@@ -193,7 +192,7 @@ body {
   letter-spacing: 0.15em;
   padding: 0.75rem 2.5rem;
   white-space: nowrap;
-  width: 100%;
+  width: auto;
   cursor: pointer;
   box-shadow:
     0 0 0.5rem rgba(255, 255, 255, 0.25),
@@ -287,6 +286,13 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
+
+@media (max-width: 900px) {
+  .rating-row {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 600px) {
   body {
     padding: 0.5cm;
@@ -297,7 +303,7 @@ footer {
   }
   .rating-row {
     justify-content: center;
-    gap: 2rem;
+    gap: 4rem;
   }
   .card-btn {
     flex: 0 0 40%;
