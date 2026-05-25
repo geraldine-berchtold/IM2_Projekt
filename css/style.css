@@ -91,6 +91,7 @@ body {
   font-family: var(--font-body);
   margin-top: 0.8rem;
   font-size: 10pt;
+  text-align: center;
 }
 
 .play-btn {
@@ -168,8 +169,7 @@ body {
 .rating-row {
   display: grid;
   grid-template-columns: repeat(3, auto);
-  width: fit-content;
-  gap: 10rem;
+  gap: 8rem;
   justify-items: center;
 }
 
@@ -192,7 +192,10 @@ body {
   letter-spacing: 0.15em;
   padding: 0.75rem 2.5rem;
   white-space: nowrap;
-  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 8rem;
   cursor: pointer;
   box-shadow:
     0 0 0.5rem rgba(255, 255, 255, 0.25),
@@ -280,39 +283,80 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12pt;
   letter-spacing: 0.03em;
-  margin-top: auto;
 }
 
-/* ── RESPONSIVE ── */
-
-@media (max-width: 900px) {
-  .rating-row {
-    grid-template-columns: 1fr;
-  }
-}
-
+/* ── MEDIA QUERY ── */
 @media (max-width: 600px) {
   body {
     padding: 0.5cm;
   }
-  #game {
-    padding: 3rem 1.2rem;
-    gap: 5rem;
-  }
-  .rating-row {
-    justify-content: center;
-    gap: 4rem;
-  }
-  .card-btn {
-    flex: 0 0 40%;
-  }
-  .section-title {
-    white-space: normal;
-  }
-  footer {
-    flex-direction: column;
+
+  .site-frame {
     align-items: center;
   }
+
+  .logo-corner {
+    position: static;
+    width: 230px;
+    margin: 4rem auto -6rem auto;
+  }
+
+  .neon-title {
+    font-size: clamp(2.8rem, 7vw, 5.5rem);
+  }
+
+  .bodytext {
+    font-size: 10pt;
+  }
+  
+  .play-btn {
+    padding: 0.6rem 2rem;
+    font-size: 0.75rem;
+  }
+  
+  .arrow-img {
+    width: 8rem;
+  }
+
+  .section-title {
+    font-size: clamp(1rem, 2.6vw, 1.8rem);
+  }
+
+    .pick-your-level,
+  .choose-your-fate {
+    padding: 6rem 1rem 1rem 1rem;
+    gap: 2rem;
+  }
+
+  .rating-row {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .rating-btn {
+    font-size: 0.65rem;
+    padding: 0.5rem 8rem;
+  }
+
+  .bodytext-small {
+    font-size: 9pt;
+  }
+
+.cards-row {
+  gap: 2rem;
+}
+
+  .card-btn {
+    flex: 0 0 45%;
+  }
+
+  footer .bodytext-small {
+    font-size: 4pt;
+  }
+
+  footer {
+    gap: 1rem;
+  }
+
 }
