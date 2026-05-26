@@ -279,9 +279,9 @@ body {
 /* ── OVERLAY QUESTION / DARE ── */
 .result-box {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -289,10 +289,9 @@ body {
   gap: 2rem;
   padding: 3rem;
   background: #0a0a0a;
-  border: 0.0625rem solid rgba(255, 255, 255, 0.3);
-  border-radius: 1rem;
-  width: 80%;
-  box-shadow: 0 0 1.5rem rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
   z-index: 200;
 }
 
