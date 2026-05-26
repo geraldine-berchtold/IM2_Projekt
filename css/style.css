@@ -299,7 +299,7 @@ footer {
   .logo-corner {
     position: static;
     width: 230px;
-    margin: 4rem auto -6rem auto;
+    margin: 0rem auto -6rem auto;
   }
 
   .neon-title {
@@ -309,12 +309,12 @@ footer {
   .bodytext {
     font-size: 10pt;
   }
-  
+
   .play-btn {
     padding: 0.6rem 2rem;
     font-size: 0.75rem;
   }
-  
+
   .arrow-img {
     width: 8rem;
   }
@@ -323,7 +323,7 @@ footer {
     font-size: clamp(1rem, 2.6vw, 1.8rem);
   }
 
-    .pick-your-level,
+  .pick-your-level,
   .choose-your-fate {
     padding: 6rem 1rem 1rem 1rem;
     gap: 2rem;
@@ -343,20 +343,19 @@ footer {
     font-size: 9pt;
   }
 
-.cards-row {
-  gap: 2rem;
-}
+  .cards-row {
+    gap: 2rem;
+  }
 
   .card-btn {
     flex: 0 0 45%;
   }
 
-  footer .bodytext-small {
-    font-size: 4pt;
-  }
-
   footer {
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
-
+  footer .bodytext-small {
+    font-size: 7pt;
+  }
 }
