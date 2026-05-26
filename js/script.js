@@ -50,23 +50,25 @@ async function loadDare() {
   }
 }
 
-// ── OVERLAY ──
+// ── OVERLAY ELEMENTS ──
 let resultBox = document.querySelector('.result-box');
 let overlayText = document.querySelector('.overlay-text');
 let wheelAnimation = document.querySelector('#wheel-animation');
 let goBack = document.querySelector('#go-back');
 
+// ── SHOW OVERLAY ──
 let showOverlay = (text, wheelSrc) => {
-  // show overlay
-  resultBox.classList.remove('hidden');
-
-  // show wheel, hide question and button
-  wheelAnimation.setAttribute('src', wheelSrc);
-  wheelAnimation.style.display = 'block';
+  // clear previous question
+  overlayText.textContent = '';
   overlayText.classList.add('hidden');
   goBack.classList.add('hidden');
 
-  // after 3 seconds swap wheel for question
+  // show overlay and wheel
+  resultBox.classList.remove('hidden');
+  wheelAnimation.setAttribute('src', wheelSrc);
+  wheelAnimation.style.display = 'block';
+
+  // after 3 seconds hide wheel and show question
   setTimeout(() => {
     wheelAnimation.style.display = 'none';
     overlayText.textContent = text;
@@ -75,23 +77,18 @@ let showOverlay = (text, wheelSrc) => {
   }, 3000);
 };
 
-document.querySelector('#go-back').addEventListener('click', () => {
+// ── CLOSE OVERLAY ──
+goBack.addEventListener('click', () => {
   resultBox.classList.add('hidden');
 });
 
 // ── CARD BUTTONS ──
 document.querySelector('#truth-card').addEventListener('click', async () => {
   const data = await loadTruth();
-  let src = window.innerWidth <= 600
-    ? 'images/truth-fortune-wheel_mobile.lottie'
-    : 'images/truth-fortune-wheel_desktop.lottie';
-  if (data) showOverlay(data.question, src);
+  if (data) showOverlay(data.question, './images/truth-fortune-wheel.json');
 });
 
 document.querySelector('#dare-card').addEventListener('click', async () => {
   const data = await loadDare();
-  let src = window.innerWidth <= 600
-    ? 'images/dare-fortune-wheel_mobile.lottie'
-    : 'images/dare-fortune-wheel_desktop.lottie';
-  if (data) showOverlay(data.question, src);
+  if (data) showOverlay(data.question, './images/dare-fortune-wheel.json');
 });
