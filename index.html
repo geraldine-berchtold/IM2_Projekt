@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Truth or Dare</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.js"
+      type="module"
+    ></script>
   </head>
   <body>
     <div class="site-frame">
@@ -63,9 +67,16 @@
           </button>
         </div>
         <div class="result-box hidden">
-          <p class="overlay-text"></p>
-          <a class="play-btn" id="go-back">GO BACK</a>
+          <p class="overlay-text hidden"></p>
+          <a class="play-btn hidden" id="go-back">GO BACK</a>
         </div>
+        <dotlottie-player
+          id="wheel-animation"
+          src="./images\Dare Fortune Wheel Mobile.json"
+          autoplay
+          loop
+        >
+        </dotlottie-player>
       </section>
 
       <!-- FOOTER -->

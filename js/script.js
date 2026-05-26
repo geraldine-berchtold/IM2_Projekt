@@ -53,10 +53,26 @@ async function loadDare() {
 // ── OVERLAY ──
 let resultBox = document.querySelector('.result-box');
 let overlayText = document.querySelector('.overlay-text');
+let wheelAnimation = document.querySelector('#wheel-animation');
+let goBack = document.querySelector('#go-back');
 
-let showOverlay = (text) => {
-  overlayText.textContent = text;
+let showOverlay = (text, wheelSrc) => {
+  // show overlay
   resultBox.classList.remove('hidden');
+
+  // show wheel, hide question and button
+  wheelAnimation.setAttribute('src', wheelSrc);
+  wheelAnimation.style.display = 'block';
+  overlayText.classList.add('hidden');
+  goBack.classList.add('hidden');
+
+  // after 3 seconds swap wheel for question
+  setTimeout(() => {
+    wheelAnimation.style.display = 'none';
+    overlayText.textContent = text;
+    overlayText.classList.remove('hidden');
+    goBack.classList.remove('hidden');
+  }, 3000);
 };
 
 document.querySelector('#go-back').addEventListener('click', () => {
@@ -66,10 +82,16 @@ document.querySelector('#go-back').addEventListener('click', () => {
 // ── CARD BUTTONS ──
 document.querySelector('#truth-card').addEventListener('click', async () => {
   const data = await loadTruth();
-  if (data) showOverlay(data.question);
+  let src = window.innerWidth <= 600
+    ? 'images/truth-fortune-wheel_mobile.lottie'
+    : 'images/truth-fortune-wheel_desktop.lottie';
+  if (data) showOverlay(data.question, src);
 });
 
 document.querySelector('#dare-card').addEventListener('click', async () => {
   const data = await loadDare();
-  if (data) showOverlay(data.question);
+  let src = window.innerWidth <= 600
+    ? 'images/dare-fortune-wheel_mobile.lottie'
+    : 'images/dare-fortune-wheel_desktop.lottie';
+  if (data) showOverlay(data.question, src);
 });
