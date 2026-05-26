@@ -58,15 +58,17 @@ let goBack = document.querySelector('#go-back');
 
 // ── SHOW OVERLAY ──
 let showOverlay = (text, wheelSrc) => {
-  // clear previous question
+  // reset
   overlayText.textContent = '';
   overlayText.classList.add('hidden');
   goBack.classList.add('hidden');
 
-  // show overlay and wheel
-  resultBox.classList.remove('hidden');
-  wheelAnimation.setAttribute('src', wheelSrc);
+  // set correct wheel src and show it
+wheelAnimation.load(wheelSrc);
   wheelAnimation.style.display = 'block';
+
+  // show overlay
+  resultBox.classList.remove('hidden');
 
   // after 3 seconds hide wheel and show question
   setTimeout(() => {
